@@ -7,8 +7,6 @@
 
 <body>
 
-<h1>Next Steps</h1>
-
 <section id="intro" class="first">
 
     <h3>Bootstrap Customization</h3>

@@ -7,10 +7,12 @@
 
 <body>
 
-<section id="intro" class="first">
-    <g:link class="btn btn-large btn-primary" controller="nextSteps">Next Steps</g:link>
-</section>
+<g:if test="${product}">
+    ${product.name}
+</g:if>
+<g:else>
 
+</g:else>
 <section id="info">
     <div class="row">
         <div class="col-md-4">

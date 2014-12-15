@@ -15,7 +15,9 @@
                 ${meta(name: 'app.name')}
                 <small>v${meta(name: 'app.version')}</small>
             </a>
+
         </div>
+
 
         <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
 
@@ -23,8 +25,22 @@
                 <g:render template="/_menu/controller"/>
             </ul>
 
+
+            <p class="navbar-brand pull-left">
+                <g:if test="${pageProperty(name: 'page.header')}">
+                    <g:pageProperty name="page.header"/>
+                </g:if>
+                <g:else>
+                    <g:layoutTitle default="${meta(name: 'app.name')}"/>
+                </g:else>
+            </p>
+
+
+
+
+
             <ul class="nav navbar-nav navbar-right">
-                <g:render template="/_menu/search"/>
+                %{--<g:render template="/_menu/search"/>--}%
                 <g:render template="/_menu/admin"/>
                 <g:render template="/_menu/info"/>
                 <g:render

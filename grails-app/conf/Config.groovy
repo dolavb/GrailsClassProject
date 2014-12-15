@@ -101,11 +101,10 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+
+    appenders {
+        console name: 'stdout', layout: pattern(conversionPattern: '%c{2} %m%n')
+    }
 
     error 'org.codehaus.groovy.grails.web.servlet',        // controllers
             'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -132,6 +131,25 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/**/js/**'      : ['permitAll'],
         '/**/css/**'     : ['permitAll'],
         '/**/images/**'  : ['permitAll'],
-        '/**/favicon.ico': ['permitAll']
+        '/**/favicon.ico': ['permitAll'],
+        '/**/register/**': ['permitAll'],
+        '/**/login/**'   : ['permitAll'],
+        '/**'            : ['permitAll']
 ]
 
+
+
+grails {
+    mail {
+
+        host = "mailtrap.io"
+        port = 465
+        username = "27151ab2e937daae2"
+        password = "8bc8315a24b48e"
+        props = ["mail.smtp.auth": "PLAIN"]
+
+    }
+}
+
+grails.plugin.springsecurity.ui.register.emailFrom = 'dolavbgenericmail@gmail.com'
+grails.plugin.springsecurity.ui.forgotPassword.emailFrom = 'dolavbgenericmail@gmail.com'

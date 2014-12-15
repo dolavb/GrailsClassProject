@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <input type='submit' id="submit" class="btn btn-success"
                            value='${message(code: "springSecurity.login.button", default: 'Login')}'/>
-                    <input type="button" id="register" class="btn btn-primary"
+                    <input href='#RegisterModal' type="button" id="register" class="btn btn-primary" data-toggle="modal"
                            value='${message(code: 'security.register.label', default: 'Register')}'/>
                 </div>
             </form>

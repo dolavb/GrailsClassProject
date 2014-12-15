@@ -21,6 +21,9 @@
     <r:require modules="bootstrap"/>
     <r:require modules="bootstrap_utils"/>
 
+    <g:set var="layout_nomainmenu" value="${true}" scope="request"/>
+    <g:set var="layout_nosecondarymenu" value="${true}" scope="request"/>
+
     <r:layoutResources/>
     <g:layoutHead/>
 
@@ -30,18 +33,11 @@
 	<![endif]-->
 
     <%-- For Javascript see end of body --%>
+
 </head>
 
 <body>
 <g:render template="/_menu/navbar"/>
-
-<!-- Enable to overwrite Header by individual page -->
-<g:if test="${pageProperty(name: 'page.header')}">
-    <g:pageProperty name="page.header"/>
-</g:if>
-<g:else>
-    <g:render template="/layouts/header"/>
-</g:else>
 
 <g:render template="/layouts/content"/>
 
