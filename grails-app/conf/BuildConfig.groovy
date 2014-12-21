@@ -79,8 +79,6 @@ grails.project.dependency.resolution = {
         compile ":spring-security-ui:1.0-RC2"
 
         //UI
-        compile ":kickstart-with-bootstrap:1.1.0"
-
         compile ":easygrid:1.6.9"
         compile ":export:1.6"
         compile ":jquery-ui:1.10.4"
