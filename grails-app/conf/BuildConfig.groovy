@@ -49,12 +49,15 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://repo.grails.org/grails/core"
+
     }
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.27'
         // runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+
     }
 
     plugins {
@@ -77,6 +80,10 @@ grails.project.dependency.resolution = {
 
         //UI
         compile ":kickstart-with-bootstrap:1.1.0"
+
+        compile ":easygrid:1.6.9"
+        compile ":export:1.6"
+        compile ":jquery-ui:1.10.4"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"

@@ -17,10 +17,10 @@ class Product {
     String name
     String description
 
-    List<Item> itmes
+    List<ProductItem> itmes
 
 
-    static hasMany = [items: Item]
+    static hasMany = [items: ProductItem]
 
     static mapping = {
     }

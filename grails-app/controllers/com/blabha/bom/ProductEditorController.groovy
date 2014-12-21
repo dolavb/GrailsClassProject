@@ -8,9 +8,11 @@ class ProductEditorController {
 
     static scaffold = false
 
-    def index(Product product) {
-        product = new Product(name: "TEST")
-        render view: 'index', model: [product: product]
+    static defaultAction = 'editor'
+
+    def editor(Product product) {
+
+        product
     }
 
 

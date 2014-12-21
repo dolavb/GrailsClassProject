@@ -18,4 +18,5 @@ class UserProfileService {
         def userProfile = new UserProfile(firstName: firstName, lastName: lastName, user: user)
         userProfile.save()
     }
+
 }

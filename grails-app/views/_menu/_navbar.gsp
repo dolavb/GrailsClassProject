@@ -13,7 +13,6 @@
                 <img class="logo" src="${resource(plugin: 'kickstart', dir: 'images', file: 'brand_logo.png')}"
                      alt="${meta(name: 'app.name')}" width="16px" height="16px"/>
                 ${meta(name: 'app.name')}
-                <small>v${meta(name: 'app.version')}</small>
             </a>
 
         </div>
@@ -24,19 +23,6 @@
             <ul class="nav navbar-nav">
                 <g:render template="/_menu/controller"/>
             </ul>
-
-
-            <p class="navbar-brand pull-left">
-                <g:if test="${pageProperty(name: 'page.header')}">
-                    <g:pageProperty name="page.header"/>
-                </g:if>
-                <g:else>
-                    <g:layoutTitle default="${meta(name: 'app.name')}"/>
-                </g:else>
-            </p>
-
-
-
 
 
             <ul class="nav navbar-nav navbar-right">

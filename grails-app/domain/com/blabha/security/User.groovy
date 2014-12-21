@@ -1,5 +1,7 @@
 package com.blabha.security
 
+import com.blabha.profile.UserProfile
+
 class User {
 
     transient springSecurityService
@@ -8,6 +10,9 @@ class User {
     String username
     String password
     String email
+
+    UserProfile userProfile
+    static hasOne = [userProfile: UserProfile]
 
     boolean enabled = true
     boolean accountExpired
@@ -20,6 +25,7 @@ class User {
         username blank: false, unique: true
         password blank: false
         email blank: false, unique: true
+        userProfile nullable: true, blank: true
     }
 
     static mapping = {

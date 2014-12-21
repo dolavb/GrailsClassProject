@@ -35,7 +35,7 @@
             <i class="glyphicon glyphicon-user icon-white"></i>
 
 
-            <sec:username/> <b class="caret"></b>
+            <bb:fullusername/> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu">
             <!-- TODO: Only show menu items based on permissions -->

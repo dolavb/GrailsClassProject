@@ -1,6 +1,6 @@
 package com.blabha.bom
 
-import grails.transaction.Transactional
+import org.grails.plugin.easygrid.Easygrid
 
 import static org.springframework.http.HttpStatus.*
 
@@ -8,20 +8,34 @@ import static org.springframework.http.HttpStatus.*
  * MaterialController
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
-@Transactional(readOnly = true)
+
+@Easygrid
 class MaterialController {
+
+    static defaultAction = "list"
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Material.list(params), model: [materialInstanceCount: Material.count()]
-    }
+    def materialService
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Material.list(params), model: [materialInstanceCount: Material.count()]
+
+        [materialInstanceCount: Material.count(), materialInstanceList: Material.list(params)]
     }
+
+
+    def materialGrid = {
+        gridImpl 'dataTables'
+        domainClass Material
+
+        columns {
+            number
+            description
+        }
+
+    }
+
 
     def show(Material materialInstance) {
         respond materialInstance
@@ -31,7 +45,6 @@ class MaterialController {
         respond new Material(params)
     }
 
-    @Transactional
     def save(Material materialInstance) {
         if (materialInstance == null) {
             notFound()
@@ -43,7 +56,7 @@ class MaterialController {
             return
         }
 
-        materialInstance.save flush: true
+        materialService.save(materialInstance)
 
         request.withFormat {
             form {
@@ -58,7 +71,7 @@ class MaterialController {
         respond materialInstance
     }
 
-    @Transactional
+
     def update(Material materialInstance) {
         if (materialInstance == null) {
             notFound()
@@ -70,7 +83,7 @@ class MaterialController {
             return
         }
 
-        materialInstance.save flush: true
+        materialService.save(materialInstance)
 
         request.withFormat {
             form {
@@ -81,7 +94,7 @@ class MaterialController {
         }
     }
 
-    @Transactional
+
     def delete(Material materialInstance) {
 
         if (materialInstance == null) {
