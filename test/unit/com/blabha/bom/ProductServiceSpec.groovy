@@ -16,5 +16,6 @@ class ProductServiceSpec extends Specification {
     }
 
     void "test something"() {
+
     }
 }

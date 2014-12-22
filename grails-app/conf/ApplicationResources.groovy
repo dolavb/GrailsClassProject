@@ -7,10 +7,13 @@ modules = {
     'bootstrap' {
         resource url: [dir: 'bootstrap/dist/js', file: 'bootstrap.js']
         resource url: [dir: 'bootstrap/dist/css', file: 'bootstrap.css']
+    }
+    log.info "| Using CSS files instead of generating from LESS files! (resource processing was switched off)"
+
+    'datatable_bootstrap' {
         resource url: 'js/bootstrap.datatable.js'
         resource url: 'css/bootstrap.datatables.css'
     }
-    log.info "| Using CSS files instead of generating from LESS files! (resource processing was switched off)"
 
     /* Utility resources (must be loaded after bootstrap skin resources) */
     'bootstrap_utils' {

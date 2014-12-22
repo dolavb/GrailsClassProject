@@ -8,15 +8,15 @@
         "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) { },
         "fnServerParams": easygrid.serverParams('${attrs.id}'),
         "aoColumns": [
-            <grid:eachColumn gridConfig="${gridConfig}">
-                <g:if test="${col.render}">
-                    {${JsUtils.convertToJs(col.dataTables + [sName: col.name, bSearchable: col.enableFilter], gridId, true)}
-                    <g:if test="${col.otherProperties}">
-                        ,${col.otherProperties}
-                    </g:if>
-                    },
-                </g:if>
-            </grid:eachColumn>
+    <grid:eachColumn gridConfig="${gridConfig}">
+        <g:if test="${col.render}">
+            {${JsUtils.convertToJs(col.dataTables + [sName: col.name, bSearchable: col.enableFilter], gridId, true)}
+            <g:if test="${col.otherProperties}">
+                ,${col.otherProperties}
+            </g:if>
+            },
+        </g:if>
+    </grid:eachColumn>
     ]
 
 });
@@ -52,7 +52,7 @@ $("tfoot input").blur(function (i) {
 
 
 <table id="${gridId}" cellpadding="0" cellspacing="0" border="0"
-       class="display">%{--width="${gridConfig.datatable.width}">--}%
+       class="table table-bordered margin-top-medium">%{--width="${gridConfig.datatable.width}">--}%
     <thead>
     <tr>
         <g:each in="${gridConfig.columns}" var="col">
@@ -83,4 +83,4 @@ $("tfoot input").blur(function (i) {
     </g:if>
     </tfoot>
 </table>
-<r:require modules="easygrid-datatables-dev,export"/>
+<r:require modules="datatable_bootstrap,easygrid-datatables-dev,export"/>

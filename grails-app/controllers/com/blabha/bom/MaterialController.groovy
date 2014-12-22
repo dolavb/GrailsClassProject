@@ -19,9 +19,6 @@ class MaterialController {
     def materialService
 
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-
-        [materialInstanceCount: Material.count(), materialInstanceList: Material.list(params)]
     }
 
 
@@ -32,6 +29,8 @@ class MaterialController {
         columns {
             number
             description
+            dateCreated
+            lastUpdated
         }
 
     }

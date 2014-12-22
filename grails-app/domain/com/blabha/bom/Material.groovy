@@ -15,6 +15,7 @@ class Material {
     }
 
     static constraints = {
+        number unique: true
         description nullable: true, blank: true
     }
 

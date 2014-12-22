@@ -17,9 +17,7 @@ class Product {
     String name
     String description
 
-    List<ProductItem> itmes
-
-
+    List<ProductItem> items = new ArrayList<ProductItem>()
     static hasMany = [items: ProductItem]
 
     static mapping = {

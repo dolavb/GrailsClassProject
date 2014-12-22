@@ -10,8 +10,9 @@ class ProductEditorController {
 
     static defaultAction = 'editor'
 
-    def editor(Product product) {
+    def productService
 
+    def editor(Product product) {
         product
     }
 

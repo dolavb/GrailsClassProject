@@ -15,6 +15,30 @@ class ProductItemSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "a productItem needs a product"() {
+        given: 'a productItem without a product'
+        def productItem = new ProductItem(material: Mock(Material))
+
+
+        expect: 'the product Item is invalid'
+        !productItem.validate()
+    }
+
+    void "a productItem needs a material"() {
+        given: 'a productItem without a material'
+        def productItem = new ProductItem(product: Mock(Product))
+
+
+        expect: 'the product Item is invalid'
+        !productItem.validate()
+    }
+
+    void "a productItem with a material and product is valid"() {
+        given: 'a productItem without a material'
+        def productItem = new ProductItem(product: Mock(Product), material: Mock(Material))
+
+
+        expect: 'the product Item is valid'
+        !productItem.hasErrors()
     }
 }
