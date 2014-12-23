@@ -26,6 +26,11 @@ class ProductService {
         productItem
     }
 
+    def createItem(Product product, Material material, int index) {
+        def productItem = createItem(product, material)
+        changeProductItemPosition(productItem, index)
+    }
+
 
     def deleteProductItem(ProductItem productItem) {
         productItem.product.items.remove(productItem)
@@ -41,15 +46,15 @@ class ProductService {
             throw new IllegalStateException('WRONG state of Product') //This sould never happen with the actual logig
 
         //Making it safe for index out of bound
-        if (index < 0) {//If the value is negative, will be set at the begining
-            index = 0
-        }
         if (index >= items.size()) {//It the value is bigger then the list, it will be set at the end
             index = items.size() - 1
         }
         def previousIndex = productItem.itemIndex
         if (previousIndex >= index) {
             index = index - 1
+        }
+        if (index < 0) {//If the value is negative, will be set at the begining
+            index = 0
         }
         items.remove(previousIndex)
         items.add(index, productItem)

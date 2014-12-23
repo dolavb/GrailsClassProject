@@ -26,6 +26,10 @@ modules = {
         resource url: [dir: 'kickstart/css', file: 'kickstart.css']
     }
 
+    'product_editor' {
+        resource url: 'js/sortable.js'
+    }
+
 //	if (!(grails.resources?.processing?.enabled != [:] && grails.resources.processing.enabled.booleanValue() == false) ) {
 //    /* Bootstrap definitions with less */
 //    'bootstrap_less' {
