@@ -5,6 +5,6 @@ This is a school project. This is my first Grails application.
 
 HOW IT WORKS
 ============
-USE GRAILS 2.3
+USE GRAILS 2.3.9
 
 Run the application in devlopment and follow the instruction indicated in the home page
