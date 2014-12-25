@@ -1,7 +1,5 @@
-package com.blabha
+package com.blabha.bom
 
-import com.blabha.bom.Material
-import com.blabha.bom.Product
 import spock.lang.Specification
 
 /**

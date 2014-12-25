@@ -16,4 +16,13 @@ class ProductEditorTagLib {
 
     }
 
+    def editProductProductLink = { args, body ->
+        def productId = args.id
+        out << """
+                <g:createLink(controller="productEditor" id="${productId}")>
+                ${body}
+                <g:createLink/>
+                """
+    }
+
 }

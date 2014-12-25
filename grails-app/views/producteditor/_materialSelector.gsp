@@ -16,7 +16,8 @@
         group: {
             name: "productEditor",
             pull: "clone",
-            put: false
+            put: false,
+            scroll: true
         },
         sort: false
     });

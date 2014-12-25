@@ -7,51 +7,13 @@
 
 <body>
 
-<section id="intro" class="first">
-    <g:link class="btn btn-large btn-primary" controller="nextSteps">Next Steps</g:link>
-</section>
-
 <section id="info">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="center">
-                <img class="frontpageImage"
-                     src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'bs-docs-twitter-github.png')}"/>
+    <div class="center">
+        <h1>WELCOM TO BLABHA</h1>
+    </div>
 
-                <h3>Bootstrap 3.0.3</h3>
-            </div>
-
-            <p>Kickstart uses <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> to render the web pages.
-            Bootstrap is made by Mark Otto (<a href="http://twitter.com/mdo">@mdo</a>) and Billy Gates (<a
-                    href="http://twitter.com/fat">@fat</a>).
-            Bootstrap is designed to help people of all skill levels as a complete kit or to start something more complex.
-            </p>
-        </div>
-
-        <div class="col-md-4">
-            <div class="center">
-                <img class="frontpageImage"
-                     src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'browser_logos.png')}"/>
-
-                <h3>Browser support</h3>
-            </div>
-
-            <p>Bootstrap is tested and supported in major modern browsers like Chrome 14, Safari 5+, Opera 11, Internet Explorer 7, and Firefox 5.</p>
-        </div>
-
-        <div class="col-md-4">
-            <div class="center">
-                <img class="frontpageImage"
-                     src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'html5css3js8.png')}"/>
-
-                <h3>Tech Foundation</h3>
-            </div>
-
-            <p>Bootstrap is based on elements of HTML 5, CSS 3, Javascript 1.8, and jQuery 1.7 with progressively enhanced
-            components to enable a responsive design of the website.
-            Kickstart is built using Groovy 2.x and Java 7 integrated into the Grails 2.3.x framework.
-            </p>
-        </div>
+    <div class="center">
+        <p>Blabha is a simple application to manage products and their bill of materails</p>
     </div>
 </section>
 
@@ -59,38 +21,73 @@
     <div class="row">
         <div class="col-md-4">
             <div class="center">
-                <img class="" src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'Datepicker.png')}"/>
-
-                <h3>Datepicker</h3>
+                <h3>Demo Users</h3>
             </div>
 
-            <p>Kickstart uses the <a
-                    href="https://github.com/eternicode/bootstrap-datepicker">Datepicker for Bootstrap</a> by Stefan Petre and Andrew Rowls
-            </p>
+            <p>
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        Password
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        blabhaAdmin
+                    </td>
+                    <td>
+                        Admin
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        blabhaEditor
+                    </td>
+                    <td>
+                        Editor
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        blabhaViewer
+                    </td>
+                    <td>
+                        Viewer
+                    </td>
+                </tr>
+            </table>
+        </p>
         </div>
 
         <div class="col-md-4">
             <div class="center">
-                <img class=""
-                     src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'flags_preview_large.png')}"/>
-
-                <h3>Language Selector</h3>
+                <h3>Getting Started</h3>
             </div>
 
-            <p>Kickstart contains a language selector that uses the <a
-                    href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam flag icons</a> by Mark James.
-            It automatically detects which languages are available and offers them in a dropdown menu.</p>
+            <p>Using the admin or the edior user or any other user with the role editor:</p>
+            <ul>
+                <li>
+                    Create Material: access the material module in the product Product Design menu and creates some materials
+                </li>
+                <li>
+                    Create a Product: access product managment and create a product
+                </li>
+                <li>
+                    Edit your newly created product: access the product editor, drag and drop materials in the product.
+                </li>
+            </ul>
+
         </div>
 
         <div class="col-md-4">
             <div class="center">
-                <img class="" height="100"
-                     src="${resource(plugin: 'kickstart', dir: 'images/frontpage', file: 'empty.png')}"/>
-
                 <h3>Other Features</h3>
             </div>
 
-            <p>Kickstart contains several pages as starting points for the average website such as an About Page, Contact Page, 404, etc.</p>
+            <p>There is an admin menu from which you can access the Spring security UI</p>
         </div>
     </div>
 </section>

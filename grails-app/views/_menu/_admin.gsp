@@ -1,25 +1,24 @@
-<li class="dropdown">
+<sec:ifAnyGranted roles="ROLE_ADMIN">
+    <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="glyphicon glyphicon-wrench"></i>
         <g:message code="default.admin.label"/><b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
         <li class="">
-            <a tabindex="-1" href="#"><b>Technical Admin</b></a>
+            <a tabindex="-1" href="#"><b>Security Admin</b></a>
         </li>
-        <g:if env="development">
-            <li class="">
-                <a href="${createLink(uri: '/dbconsole')}">
-                    <i class="glyphicon glyphicon-dashboard"></i>
-                    <g:message code="default.dbconsole.label"/>
-                </a>
-            </li>
-        </g:if>
+
         <li class="">
-            <a href="${createLink(uri: '/systeminfo')}">
-                <i class="glyphicon glyphicon-info-sign"></i>
-                <g:message code="default.systeminfo.label"/>
-            </a>
+            <g:link controller="user">
+                <g:message code="admin.user.label"/>
+            </g:link>
+        </li>
+        <li class="">
+            <g:link controller="role">
+                <g:message code="admin.role.label"/>
+            </g:link>
         </li>
     </ul>
 </li>
+</sec:ifAnyGranted>

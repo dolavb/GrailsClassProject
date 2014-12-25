@@ -124,16 +124,31 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.blabha.securi
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.blabha.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.blabha.security.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        '/'              : ['permitAll'],
-        '/index'         : ['permitAll'],
-        '/assets/**'     : ['permitAll'],
-        '/**/js/**'      : ['permitAll'],
-        '/**/css/**'     : ['permitAll'],
-        '/**/images/**'  : ['permitAll'],
-        '/**/favicon.ico': ['permitAll'],
-        '/**/register/**': ['permitAll'],
-        '/**/login/**'   : ['permitAll'],
-        '/**'            : ['permitAll']
+        '/'                     : ['permitAll'],
+        '/home/**'              : ['permitAll'],
+        '/index'                : ['permitAll'],
+        '/assets/**'            : ['permitAll'],
+        '/**/js/**'             : ['permitAll'],
+        '/**/css/**'            : ['permitAll'],
+        '/**/images/**'         : ['permitAll'],
+        '/**/favicon.ico'       : ['permitAll'],
+        '/**/register/**'       : ['permitAll'],
+        '/**/login/**'          : ['permitAll'],
+        '/**/persistentLogin/**': ['permitAll'],
+        '/**/logout/**'         : ['permitAll'],
+        '/**/plugin/**'         : ['permitAll'],
+        '/**/dist/**'           : ['permitAll'],
+        '/product/**'           : ['ROLE_VIEWER', 'ROLE_EDITOR'],
+        '/material/**'          : ['ROLE_VIEWER', 'ROLE_EDITOR'],
+        '/productEditor/**'     : ['ROLE_VIEWER', 'ROLE_EDITOR'],
+        '/dbdoc/**'             : ['ROLE_ADMIN'],
+        '/dbconsole'            : ['ROLE_ADMIN'],
+        '/acl*/**'              : ['ROLE_ADMIN'],
+        '/user/**'              : ['ROLE_ADMIN'],
+        '/role/**'              : ['ROLE_ADMIN'],
+        '/securityInfo/**'      : ['ROLE_ADMIN']
+
+
 ]
 
 

@@ -29,18 +29,5 @@
             code="product.items.label"
             default="Items"/></label>
 
-    <div>
-        
-<ul class="one-to-many">
-<g:each in="${productInstance?.items?}" var="i">
-    <li><g:link controller="item" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="item" action="create" params="['product.id': productInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'item.label', default: 'Item')])}</g:link>
-</li>
-</ul>
-
-        <span class="help-inline">${hasErrors(bean: productInstance, field: 'items', 'error')}</span>
-    </div>
 </div>
 

@@ -7,7 +7,17 @@
 </head>
 
 <body>
-
+<ul id="Menu" class="nav nav-pills margin-top-small">
+    <li>
+        <g:link controller="product" action="show" id="${product.id}"><i
+                class="glyphicon glyphicon-info-sign"></i> <g:message code="producteditor.produt.detail"/></g:link>
+    </li>
+    <li>
+        <g:link controller="product" action="list"><i class="glyphicon glyphicon-th-list"></i> <g:message
+                code="default.list.label"
+                args="['Product']"/></g:link>
+    </li>
+</ul>
 <section id="editor">
     <div class="row">
         <div class="col-md-6">

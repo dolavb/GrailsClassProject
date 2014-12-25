@@ -20,7 +20,12 @@ class ProductController {
         domainClass Product
 
         columns {
-            name
+            name {
+                value {
+                    def href = createLink(controller: 'productEditor', action: 'editor', id: it.id)
+                    """<a href="${href}">${it.name}</a>"""
+                }
+            }
             description
             dateCreated
             lastUpdated
@@ -28,6 +33,10 @@ class ProductController {
     }
 
     def show(Product productInstance) {
+        if (productInstance == null) {
+            notFound()
+            return
+        }
         respond productInstance
     }
 
@@ -59,7 +68,7 @@ class ProductController {
     }
 
     def edit(Product productInstance) {
-        respond productInstance
+        redirect(controller: 'productEditor', action: 'editor', params: [product: productInstance])
     }
 
 
@@ -98,7 +107,7 @@ class ProductController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Product.label', default: 'Product'), productInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action: "list", method: "GET"
             }
             '*' { render status: NO_CONTENT }
         }
@@ -108,7 +117,7 @@ class ProductController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "list", method: "GET"
             }
             '*' { render status: NOT_FOUND }
         }

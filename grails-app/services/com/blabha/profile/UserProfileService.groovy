@@ -1,6 +1,7 @@
 package com.blabha.profile
 
 import com.blabha.security.User
+import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
 /**
@@ -10,6 +11,7 @@ import grails.transaction.Transactional
 @Transactional
 class UserProfileService {
 
+    @Secured(['ROLE_ADMIN'])
     def createProfileForUser(String firstName, String lastName, String userName) {
         def user = User.findByUsername(userName)
         if (!user) {

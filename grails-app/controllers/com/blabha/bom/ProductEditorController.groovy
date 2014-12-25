@@ -16,10 +16,12 @@ class ProductEditorController {
 
     def editor(Product product) {
         if (!product) {
-            product = Product.createCriteria().list {
+            def productList = Product.createCriteria().list {
                 property('id')
                 max('lastUpdated')
-            }.get(0)
+            }
+            if (productList.size() > 0)
+                product = productList.get(0)
         }
         model:
         [product: product]
@@ -27,12 +29,13 @@ class ProductEditorController {
 
     def materialList() {
         def materials = Material.list()
+
         render(template: 'materialList', model: [materialList: materials])
     }
 
     def loadProductItems() {
         def product = Product.get(params.id)
-        render(template: 'productItemList', model: [product: product])
+        renderProductList(product)
     }
 
     def addItemToProduct() {
@@ -42,7 +45,7 @@ class ProductEditorController {
 
         def productItem = productService.createItem(product, material, index)
 
-        render(template: 'productItemList', model: [product: productItem.product])
+        renderProductList(productItem.product)
     }
 
     def updateProductItemOrder() {
@@ -50,7 +53,7 @@ class ProductEditorController {
         def index = Integer.parseInt(params.index)
 
         productItem = productService.changeProductItemPosition(productItem, index)
-        render(template: 'productItemList', model: [product: productItem.product])
+        renderProductList(productItem.product)
     }
 
     def removeProductItemFromProduct() {
@@ -59,7 +62,14 @@ class ProductEditorController {
         def product = productItem.product
         productService.deleteProductItem(productItem)
         product = Product.load(product.id)
-        render(template: 'productItemList', model: [product: product])
+        renderProductList(product)
+    }
+
+    def renderProductList(Product product) {
+        if (product.items)
+            render(template: 'productItemList', model: [product: product])
+        else
+            render(template: 'emptyProduct', model: [product: product])
     }
 
 

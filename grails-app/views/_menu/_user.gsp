@@ -39,17 +39,8 @@
         </a>
         <ul class="dropdown-menu" role="menu">
             <!-- TODO: Only show menu items based on permissions -->
-            <li class=""><a href="${createLink(uri: '/')}">
-                <i class="glyphicon glyphicon-user"></i>
-                <g:message code="user.show.label"/>
-            </a></li>
-            <li class=""><a href="${createLink(uri: '/')}">
-                <i class="glyphicon glyphicon-cogs"></i>
-                <g:message code="user.settings.change.label"/>
-            </a></li>
-
-            <li class="divider"></li>
-            <li class=""><g:remoteLink controller="logout" action="index" onComplete="">
+            <li class="">
+                <g:remoteLink controller="logout" action="index" onComplete="">
                 <g:message code="security.signoff.label"/>
             </g:remoteLink>
             </li>

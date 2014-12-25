@@ -14,10 +14,10 @@ class MaterialControllerSpec extends Specification {
         //params["name"] = 'someValidName'
     }
 
-    void "Test the index action returns the correct model"() {
+    void "Test the list action returns the correct model"() {
 
-        when: "The index action is executed"
-        controller.index()
+        when: "The list action is executed"
+        controller.list()
 
         then: "The model is correct"
         !model.materialInstanceList

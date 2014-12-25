@@ -56,7 +56,7 @@ $("tfoot input").blur(function (i) {
     <thead>
     <tr>
         <g:each in="${gridConfig.columns}" var="col">
-            <th>${g.message(code: col.label, default: col.label)}</th>
+            <th style="width: auto">${g.message(code: col.label, default: col.label)}</th>
         </g:each>
     </tr>
     </thead>

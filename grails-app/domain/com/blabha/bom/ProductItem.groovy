@@ -23,6 +23,7 @@ class ProductItem {
     static hasOne = [product: Product]
     static belongsTo = [product: Product]
 
+
     ProductItem(Product product, Material material) {
         this.product = product
         this.material = material
@@ -64,6 +65,10 @@ class ProductItem {
         result = (itemNumber != null ? itemNumber.hashCode() : 0)
         result = 31 * result + (product != null ? product.hashCode() : 0)
         return result
+    }
+
+    public String toString() {
+        "${material.number}"."${itemNumber}"
     }
 
 }

@@ -12,7 +12,7 @@ class RegisterController extends grails.plugin.springsecurity.ui.RegisterControl
 
         if (emailSent) {
             userProfileService.createProfileForUser(registerCommand.firstName, registerCommand.lastName)
-            flash.message = "Check your email to activate your account"
+            flash.message = g.message(code: 'register.security.ui.mail.message', default: 'A mail was sent to your address')
             render 'index'
         } else {
             response

@@ -18,7 +18,7 @@ class MaterialController {
 
     def materialService
 
-    def list(Integer max) {
+    def list() {
     }
 
 
@@ -27,7 +27,12 @@ class MaterialController {
         domainClass Material
 
         columns {
-            number
+            number {
+                value {
+                    def href = createLink(controller: 'material', action: 'show', id: it.id)
+                    """<a href="${href}">${it.number}</a>"""
+                }
+            }
             description
             dateCreated
             lastUpdated
@@ -37,6 +42,10 @@ class MaterialController {
 
 
     def show(Material materialInstance) {
+        if (materialInstance == null) {
+            notFound()
+            return
+        }
         respond materialInstance
     }
 
@@ -93,7 +102,6 @@ class MaterialController {
         }
     }
 
-
     def delete(Material materialInstance) {
 
         if (materialInstance == null) {
@@ -101,12 +109,12 @@ class MaterialController {
             return
         }
 
-        materialInstance.delete flush: true
+        materialService.delete(materialInstance)
 
         request.withFormat {
             form {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Material.label', default: 'Material'), materialInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action: "list", method: "GET"
             }
             '*' { render status: NO_CONTENT }
         }
@@ -116,7 +124,7 @@ class MaterialController {
         request.withFormat {
             form {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'materialInstance.label', default: 'Material'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "list", method: "GET"
             }
             '*' { render status: NOT_FOUND }
         }

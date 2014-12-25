@@ -2,9 +2,18 @@
     <h4><g:message code="producteditor.product.label" default="Product"/></h4>
 
     <div id="productEditPannel" class="panel-body">
-        <div class="panel-title">${product.name}:  ${product.description}</div>
+
         <g:if test="${product}">
+            <div class="panel-title">
+
+                <div>${product.name}:  ${product.description}</div>
+
+            </div>
+
             <ul id="productList" class="list-group">
+                <li class="list-group-item">
+                    <g:message code="producteditor.product.emptyproduct" default="Empty Product"/>
+                </li>
                 <g:render template="/producteditor/productItemList"/>
             </ul>
         </g:if>
@@ -19,33 +28,40 @@
         updateItemList();
     });
 
-    var productList = document.getElementById('productList');
+    function updateItemList(){
+    <g:remoteFunction controller="productEditor" action="loadProductItems" update="productList"
+                      id="${product?.id}" method="GET"/>
+    }
 
-    var productSortable = new Sortable( productList, {
-        group: {
-            name: "productEditor",
-            pull: false,
-            put: true
-        },
+    <sec:ifAnyGranted roles="ROLE_EDITOR">
+        var productList = document.getElementById('productList');
 
-        onAdd: function (evt) {
-            var itemEl = evt.item;  // dragged HTMLElement
-            addItemToProduct(itemEl.id, evt.newIndex);
-        },
+        var productSortable = new Sortable( productList, {
+            group: {
+                name: "productEditor",
+                pull: false,
+                put: true,
+                scroll: true
+            },
 
-        onUpdate: function(evt){
-            var itemEl = evt.item;
-            reoderItem(itemEl.id, evt.newIndex);
-        }
+            onAdd: function (evt) {
+                var itemEl = evt.item;  // dragged HTMLElement
+                addItemToProduct(itemEl.id, evt.newIndex);
+            },
+
+            onUpdate: function(evt){
+                var itemEl = evt.item;
+                reoderItem(itemEl.id, evt.newIndex);
+            }
 
 
-    });
+        });
 
-    function addItemToProduct(materialId, index){
-        jQuery.ajax({
-            type: 'POST',
-            url: "${createLink(action: 'addItemToProduct', controller: 'productEditor')}",
-            data: {'materialId': materialId, 'index': index, 'productId': ${product.id}},
+        function addItemToProduct(materialId, index){
+            jQuery.ajax({
+                type: 'POST',
+                url: "${createLink(action: 'addItemToProduct', controller: 'productEditor')}",
+            data: {'materialId': materialId, 'index': index, 'productId': ${product?.id}},
             success: function(data,textStatus){
                 $('#productList').html(data);
             }
@@ -62,12 +78,7 @@
             }
         });
     }
-
-    function updateItemList(){
-    <g:remoteFunction controller="productEditor" action="loadProductItems" update="productList"
-                      id="${product.id}" method="GET"/>
-    }
-
+    </sec:ifAnyGranted>
 </r:script>
 
 <r:require module="product_editor"/>
