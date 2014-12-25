@@ -141,6 +141,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/product/**'           : ['ROLE_VIEWER', 'ROLE_EDITOR'],
         '/material/**'          : ['ROLE_VIEWER', 'ROLE_EDITOR'],
         '/productEditor/**'     : ['ROLE_VIEWER', 'ROLE_EDITOR'],
+        '/producteditor/**'     : ['ROLE_VIEWER', 'ROLE_EDITOR'],
         '/dbdoc/**'             : ['ROLE_ADMIN'],
         '/dbconsole'            : ['ROLE_ADMIN'],
         '/acl*/**'              : ['ROLE_ADMIN'],

@@ -23,6 +23,10 @@ class ProductEditorController {
             if (productList.size() > 0)
                 product = productList.get(0)
         }
+        if (product == null) {
+            redirect(controller: 'product')
+            return
+        }
         model:
         [product: product]
     }

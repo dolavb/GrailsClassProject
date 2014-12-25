@@ -9,7 +9,7 @@
 
 <section id="info">
     <div class="center">
-        <h1>WELCOM TO BLABHA</h1>
+        <h1>Welcome to BlaBha</h1>
     </div>
 
     <div class="center">

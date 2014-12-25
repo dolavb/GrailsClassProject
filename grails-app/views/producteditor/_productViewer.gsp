@@ -14,7 +14,6 @@
                 <li class="list-group-item">
                     <g:message code="producteditor.product.emptyproduct" default="Empty Product"/>
                 </li>
-                <g:render template="/producteditor/productItemList"/>
             </ul>
         </g:if>
         <g:else>

@@ -68,7 +68,7 @@ class ProductController {
     }
 
     def edit(Product productInstance) {
-        redirect(controller: 'productEditor', action: 'editor', params: [product: productInstance])
+        redirect(controller: 'productEditor', action: 'editor', id: productInstance.id)
     }
 
 
